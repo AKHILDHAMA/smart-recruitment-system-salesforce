@@ -1,0 +1,97 @@
+<template>
+
+    <lightning-card>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <lightning-icon
+                    icon-name="standard:people"
+                    size="large"
+                    alternative-text="Candidates"
+                    class="hero-icon">
+                </lightning-icon>
+
+                <div>
+                    <h1 class="hero-title">Smart Recruitment System</h1>
+                    <p class="hero-subtitle">
+                        Manage, search, and track candidates efficiently.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-container">
+
+            <!-- Search Section -->
+            <div class="search-card">
+
+                <div class="search-header">
+                    <lightning-icon
+                        icon-name="utility:search"
+                        size="small">
+                    </lightning-icon>
+
+                    <span class="search-title">
+                        Candidate Search
+                    </span>
+                </div>
+
+                <div class="search-grid">
+
+                    <lightning-input
+                        type="search"
+                        label="Search Candidates"
+                        placeholder="Search by candidate name..."
+                        value={searchKey}
+                        onchange={handleSearchChange}>
+                    </lightning-input>
+
+                    <div class="search-button-container">
+
+                        <lightning-button
+                            label="Search"
+                            variant="brand"
+                            icon-name="utility:search"
+                            onclick={handleSearch}>
+                        </lightning-button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Candidate Table -->
+            <div class="table-card">
+
+                <div class="table-header">
+
+                    <lightning-icon
+                        icon-name="standard:contact"
+                        size="small">
+                    </lightning-icon>
+
+                    <span class="table-title">
+                        Candidate Records
+                    </span>
+
+                </div>
+
+                <lightning-datatable
+                    key-field="Id"
+                    data={candidates}
+                    columns={columns}
+                    sorted-by={sortedBy}
+                    sorted-direction={sortDirection}
+                    onsort={handleSort}
+                    hide-checkbox-column>
+                </lightning-datatable>
+
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+</template>
